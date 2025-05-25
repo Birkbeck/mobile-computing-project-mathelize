@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recipe_categories">
+        <item>@string/chip_breakfast</item>
+        <item>@string/chip_brunch</item>
+        <item>@string/chip_lunch</item>
+        <item>@string/chip_dinner</item>
+        <item>@string/chip_desserts</item>
+        <item>@string/chip_other</item>
+    </string-array>
+</resources>

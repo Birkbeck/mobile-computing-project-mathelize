@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Culinary Companion</string>
+
+    <!-- Dashboard -->
+    <string name="title_categories">Categories</string>
+    <string name="title_recipes">Recipes</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="label_category">Category</string>
+
+
+    <string name="chip_all">All</string>
+    <string name="chip_breakfast">Breakfast</string>
+    <string name="chip_brunch">Brunch</string>
+    <string name="chip_lunch">Lunch</string>
+    <string name="chip_dinner">Dinner</string>
+    <string name="chip_desserts">Desserts</string>
+    <string name="chip_other">Other</string>
+
+    <!-- Detail / Edit screen -->
+    <string name="title_add_recipe">Add Recipe</string>
+    <string name="title_edit_recipe">Edit Recipe</string>
+
+    <string name="hint_title">Recipe Title</string>
+    <string name="hint_ingredients">Ingredients</string>
+    <string name="hint_instructions">Instructions</string>
+
+
+
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete">Delete “%1$s” permanently?</string>
+
+    <string name="title_view_recipe">Recipe</string>
+
+    <!--    <string-array name="recipe_categories">-->
+<!--        <item>Breakfast</item>-->
+<!--        <item>Brunch</item>-->
+<!--        <item>Lunch</item>-->
+<!--        <item>Dinner</item>-->
+<!--        <item>Desserts</item>-->
+<!--        <item>Other</item>-->
+<!--    </string-array>-->
+
+</resources>
