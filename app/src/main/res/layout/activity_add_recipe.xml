@@ -19,6 +19,7 @@
             app:titleTextColor="@android:color/white"/>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- This is the main add recipe screen-->
     <!--  ► form content  -->
     <ScrollView
         android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     card_view:cardElevation="2dp">
-
+    <!--This is the main item_recipe screen-->
     <TextView
         android:id="@+id/tvRecipeTitle"
         android:layout_width="match_parent"
