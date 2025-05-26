@@ -6,6 +6,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
+// Add Recipe File
 class AddRecipeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

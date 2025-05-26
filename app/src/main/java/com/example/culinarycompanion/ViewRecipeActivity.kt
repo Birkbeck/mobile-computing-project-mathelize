@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
+// View Recipe File
 class ViewRecipeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
