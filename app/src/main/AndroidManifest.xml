@@ -2,12 +2,14 @@
     package="com.example.culinarycompanion">
 
     <application
+        android:name=".CulinaryCompanionApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CulinaryCompanion">
+
 
         <activity
             android:name=".MainActivity"
