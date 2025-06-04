@@ -4,47 +4,61 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.culinarycompanion.data.RecipeViewModel
+import com.example.culinarycompanion.db.Recipe
 import com.google.android.material.appbar.MaterialToolbar
 
-// View Recipe File
 class ViewRecipeActivity : AppCompatActivity() {
+
+    private val vm: RecipeViewModel by viewModels()
+    private var recipe: Recipe? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_recipe)
 
-        // toolbar title = recipe name
-        val title = intent.getStringExtra("title") ?: ""
-        val category = intent.getStringExtra("category") ?: ""
-
         val tb = findViewById<MaterialToolbar>(R.id.viewToolbar)
         setSupportActionBar(tb)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         tb.setNavigationOnClickListener { finish() }
-        tb.title = title
 
-        // populate
-        findViewById<TextView>(R.id.tvTitle).text = title
-        findViewById<TextView>(R.id.tvCategory).text = category
+        val tvTitle = findViewById<TextView>(R.id.tvTitle)
+        val tvCategory = findViewById<TextView>(R.id.tvCategory)
+        val tvIngredients = findViewById<TextView>(R.id.tvIngredients)
+        val tvInstructions = findViewById<TextView>(R.id.tvInstructions)
 
-        // EDIT  -> open AddRecipeActivity pre-filled (not wired yet)
-        findViewById<Button>(R.id.btnEdit).setOnClickListener {
-            startActivity(
-                Intent(this, AddRecipeActivity::class.java)
-                    .putExtra("edit", true)
-                    .putExtra("title", title)
-            )
+        val id = intent.getLongExtra("id", 0L)
+        vm.recipes.observe(this) { list ->
+            recipe = list.firstOrNull { it.id == id } ?: return@observe
+            recipe!!.apply {
+                tb.title = title
+                tvTitle.text = title
+                tvCategory.text = category.name
+                tvIngredients.text = ingredients
+                tvInstructions.text = instructions
+            }
         }
 
-        // DELETE -> ask, then close (mock)
+        findViewById<Button>(R.id.btnEdit).setOnClickListener {
+            recipe?.let {
+                startActivity(Intent(this, AddRecipeActivity::class.java).putExtra("id", it.id))
+            }
+        }
+
         findViewById<Button>(R.id.btnDelete).setOnClickListener {
-            AlertDialog.Builder(this)
-                .setMessage(getString(R.string.confirm_delete, title))
-                .setPositiveButton(R.string.delete) { _, _ -> finish() }
-                .setNegativeButton(android.R.string.cancel, null)
-                .show()
+            recipe?.let { r ->
+                AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.confirm_delete, r.title))
+                    .setPositiveButton(R.string.delete) { _, _ ->
+                        vm.delete(r)
+                        finish()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
+            }
         }
     }
 }
