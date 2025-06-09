@@ -44,7 +44,14 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.6.1")
     add("kapt", "androidx.room:room-compiler:2.6.1")
 
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 
+    // for ApplicationProvider in pure JVM tests
+    testImplementation("androidx.test:core-ktx:1.5.0")
+
+    testImplementation("org.robolectric:robolectric:4.10.3")
     // COROUTINES / FLOW
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
